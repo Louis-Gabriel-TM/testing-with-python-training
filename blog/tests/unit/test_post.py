@@ -9,3 +9,12 @@ class TestPost(TestCase):
 
         self.assertEqual(p.title, "Test")
         self.assertEqual(p.content, "Test Content")
+
+    def test_json(self):
+        p = Post("Test", "Test Content")
+        expected = {
+            'title': "Test",
+            'content': "Test Content",
+        }
+
+        self.assertDictEqual(p.json(), expected)
