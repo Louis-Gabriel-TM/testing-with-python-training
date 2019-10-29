@@ -12,3 +12,55 @@ class TestBlog(TestCase):
         self.assertEqual(b.author, "Test Author")
         self.assertListEqual(b.posts, [])
         self.assertEqual(len(b.posts), 0)  # similar to previous assert
+
+    def test__repr__(self):
+        b1 = Blog("Test", "Test Author")
+        b2 = Blog("My Day", "Rolf")
+
+        self.assertEqual(
+            b1.__repr__(), 
+            "Blog Test by Test Author (0 post)"
+        )
+        self.assertEqual(
+            b2.__repr__(), 
+            "Blog My Day by Rolf (0 post)"
+        )
+
+    def test__repr__with_multiple_posts(self):
+        b = Blog("Test", "Test Author")
+        b.posts = ["Test post"]
+
+        self.assertEqual(
+            b.__repr__(), 
+            "Blog Test by Test Author (1 post)"
+        )
+
+        b.posts.append("Another test post")
+
+        self.assertEqual(
+            b.__repr__(),
+            "Blog Test by Test Author (2 posts)"
+        )
+
+"""
+    def test_create_post(self):
+        b = Blog("Test Blog", "Test Author")
+        b.create_post("Test Post", "Test Content")
+
+        self.assertIn(
+            Post("Test Post", "Test Content"), 
+            b.posts
+        )
+
+    def test_json(self):
+        b = Blog("Test Blog", "Test Author")
+        p = Post("Test Post", "Test Content")
+        b.posts.append(p)
+        expected = {
+            'title': "Test Blog",
+            'author': 'Test Author',
+            'posts': [p]
+        }
+
+        self.assertDictEqual(b.json(), expected)
+"""
