@@ -41,26 +41,3 @@ class TestBlog(TestCase):
             b.__repr__(),
             "Blog Test by Test Author (2 posts)"
         )
-
-"""
-    def test_create_post(self):
-        b = Blog("Test Blog", "Test Author")
-        b.create_post("Test Post", "Test Content")
-
-        self.assertIn(
-            Post("Test Post", "Test Content"), 
-            b.posts
-        )
-
-    def test_json(self):
-        b = Blog("Test Blog", "Test Author")
-        p = Post("Test Post", "Test Content")
-        b.posts.append(p)
-        expected = {
-            'title': "Test Blog",
-            'author': 'Test Author',
-            'posts': [p]
-        }
-
-        self.assertDictEqual(b.json(), expected)
-"""
