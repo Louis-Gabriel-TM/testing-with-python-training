@@ -13,7 +13,7 @@ class TestBlog(TestCase):
         self.assertEqual(b.posts[0].title, "Test Post")
         self.assertEqual(b.posts[0].content, "Test Content")
 
-    def test_josn_no_post(self):
+    def test_json_no_post(self):
         b = Blog("Test", "Test Author")
 
         expected = {
