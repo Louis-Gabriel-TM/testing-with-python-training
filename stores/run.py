@@ -1,8 +1,8 @@
 from app import app
 from db import db
 
-
-db.init_app(app)
+db.init
+_app(app)
 
 
 @app.before_first_request
