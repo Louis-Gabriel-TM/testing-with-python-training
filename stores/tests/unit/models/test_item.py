@@ -1,13 +1,12 @@
-from unittest import TestCase
-
 from models.item import ItemModel
-from models.store import StoreModel
+from tests.unit.unit_base_test import UnitBaseTest
 
 
-class TestItem(TestCase):
+class TestItem(UnitBaseTest):
 
     def test_create_item(self):
-        StoreModel('test store').save_to_db()
+        # Don't have to create a StoreModel object
+        # because we don't save in the database.
         item = ItemModel('test item', 19.99, 1)
 
         self.assertEqual(
@@ -16,9 +15,9 @@ class TestItem(TestCase):
         )
         self.assertEqual(item.price, 19.99)
         self.assertEqual(item.store_id, 1)
+        self.assertIsNone(item.store)
 
     def test_item_json(self):
-        StoreModel('test store').save_to_db()
         item = ItemModel('test item', 19.99, 1)
         expected = {
             'name': 'test item',

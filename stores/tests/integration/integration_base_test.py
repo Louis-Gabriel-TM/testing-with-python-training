@@ -4,7 +4,7 @@ from app import app
 from db import db
 
 
-class BaseTest(TestCase):
+class IntegrationBaseTest(TestCase):
     """
     This class is the parent class to each non-unit test.
     It allows the instantiation of the database dynamically
