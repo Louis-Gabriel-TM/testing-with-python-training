@@ -11,7 +11,7 @@ class TestItem(IntegrationBaseTest):
             item = ItemModel('test item', 19.99, 1)
 
             self.assertIsNone(
-                ItemModel.find_by_name('test'),
+                ItemModel.find_by_name('test item'),
                 f"Found an item with name {item.name}, but expected not to."
             )
             item.save_to_db()
