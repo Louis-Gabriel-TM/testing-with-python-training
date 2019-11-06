@@ -1,9 +1,9 @@
 from models.item import ItemModel
 from models.store import StoreModel
-from tests.integration.integration_base_test import IntegrationBaseTest
+from tests.base_test import BaseTest
 
 
-class TestStore(IntegrationBaseTest):
+class TestStore(BaseTest):
 
     def test_create_store_with_no_item(self):
         store = StoreModel('test store')
