@@ -11,9 +11,13 @@ class BaseTest(TestCase):
     and makes sure that it is a new blank database each time.
     """
 
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///'
+
     @classmethod
     def setUpClass(cls):  # Run once for all the tests in a test class
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
+        app.config['SQLALCHEMY_DATABASE_URI'] = cls.SQLALCHEMY_DATABASE_URI
+        app.config['DEBUG'] = False
+
         with app.app_context():
             db.init_app(app)
 

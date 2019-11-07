@@ -9,7 +9,7 @@ class Store(Resource):
         store = StoreModel.find_by_name(name)
         if store:
             return store.json()
-        return {'message': 'Store not found'}, 404
+        return {'message': 'Store not found.'}, 404
 
     def post(self, name):
         if StoreModel.find_by_name(name):
@@ -28,7 +28,7 @@ class Store(Resource):
         if store:
             store.delete_from_db()
 
-        return {'message': 'Store deleted'}
+        return {'message': 'Store deleted.'}
 
 
 class StoreList(Resource):
