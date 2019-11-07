@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, jsonify
 from flask_jwt import JWT, JWTError
 from flask_restful import Api
 
